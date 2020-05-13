@@ -1,3 +1,4 @@
+#from tests.test_values import *
 from tests.test_values import *
 import pandas as pd
 
@@ -18,7 +19,5 @@ class SSTestFile:
         df.to_csv("./tests/data/{}".format(self.filename), sep=self.sep, index=False, mode='w')
 
     def prepare_dictionary(self):
-        return {SNP_DSET: snpsarray, PVAL_DSET: pvalsarray, CHR_DSET: chrarray, OR_DSET: orarray, BP_DSET: bparray,
-                    EFFECT_DSET: effectarray, OTHER_DSET: otherarray, FREQ_DSET: frequencyarray, SE_DSET: searray, BETA_DSET: betaarray,
-                    RANGE_L_DSET: rangearray, RANGE_U_DSET: rangearray}
-
+        return {SNP_DSET: snpsarray, CHR_DSET: chrarray, BP_DSET: bparray, EFFECT_DSET: effectarray, REF_DSET: refarray,
+                    EFFECT_WEIGHT_DSET: weightarray, LOCUS_DSET: locusarray, OR_DSET: orarray, HR_DSET: hrarray, BETA_DSET: betaarray, FREQ_DSET: frequencyarray}

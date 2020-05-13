@@ -3,10 +3,10 @@ import numpy as np
 from pandas_schema import Column
 from pandas_schema.validation import MatchesPatternValidation, InRangeValidation, InListValidation, CustomSeriesValidation, CustomElementValidation, CanConvertValidation, IsDtypeValidation, CanCallValidation
 #from validate.helpers import InInclusiveRangeValidation
-from helpers import InInclusiveRangeValidation
+from .helpers import InInclusiveRangeValidation
 
 #from validate.common_constants import *
-from common_constants import *
+from .common_constants import *
 
 STD_COLS_VAR = (EFFECT_DSET, CHR_DSET, BP_DSET, SNP_DSET) #OR_DSET, RANGE_L_DSET, RANGE_U_DSET, BETA_DSET, SE_DSET, FREQ_DSET , EFFECT_DSET, REF_DSET)
 STD_COLS_VAR_POS = (EFFECT_DSET, CHR_DSET, BP_DSET)

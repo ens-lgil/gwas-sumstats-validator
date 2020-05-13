@@ -8,7 +8,7 @@ import logging
 import pandas as pd
 from pandas_schema import Schema
 #from validator.schema import *
-from schema import *
+from .schema import *
 
 """
 GWAS Summary statistics file validator
@@ -29,7 +29,7 @@ logger = logging.getLogger(__name__)
 
 
 class Validator:
-    def __init__(self, file, filetype, logfile="VALIDATE.log", error_limit=1000):
+    def __init__(self, file, filetype, logfile="VALIDATE.log", error_limit=0):
         self.file = file
         self.filetype = filetype
         self.schema = None
@@ -37,7 +37,6 @@ class Validator:
         self.cols_to_validate = []
         self.cols_to_read = []
         self.sep = get_seperator(self.file)
-        self.errors = []
         self.bad_rows = []
         self.row_errors = []
         self.errors_seen = {}
@@ -46,7 +45,7 @@ class Validator:
         self.logfile = logfile
         self.error_limit = int(error_limit)
 
-        if self.filetype == 'curated' or self.filetype == 'gwas-upload':
+        if self.filetype == 'curated' or self.filetype == 'pgs-upload':
             # if curator format allow for more chromosome values
             VALID_CHROMOSOMES.extend(['X', 'x', 'Y', 'y', 'MT', 'Mt', 'mt'])
 
